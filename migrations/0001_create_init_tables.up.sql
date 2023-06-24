@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS starter (
-    id SERIAL PRIMARY KEY,
+    id UUID PRIMARY KEY,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );

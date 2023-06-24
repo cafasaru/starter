@@ -1,13 +1,13 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/cafasaru/starter/internal/db"
 )
 
 const (
+	// Version for the microservice
 	Version = "0.0.1"
 )
 
@@ -21,7 +21,8 @@ func Run() error {
 		return err
 	}
 
-	if err := db.PingDB(context.Background()); err != nil {
+	if err := db.MigrateDB(); err != nil {
+		fmt.Println("failed to migrate database")
 		return err
 	}
 

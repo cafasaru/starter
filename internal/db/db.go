@@ -1,4 +1,5 @@
 // Package database sets up a default pg db with sqlx
+// this package is also responsible for migrating our database
 package db
 
 import (

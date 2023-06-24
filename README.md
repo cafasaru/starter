@@ -3,6 +3,8 @@ starter is a simple go microservice with a CI/CD pipeline
 
 # Dependencies
 
+## handy
+
 ```shell
 
 brew tap golangci/tap

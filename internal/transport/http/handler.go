@@ -36,6 +36,8 @@ func NewHandler(service Service) *Handler {
 
 	// set middlewares
 	h.Router.Use(JSONMiddleware)
+	h.Router.Use(LoggingMiddleware)
+	h.Router.Use(TimeoutMiddleware)
 
 	h.mapRoutes()
 

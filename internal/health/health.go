@@ -34,11 +34,11 @@ type Service struct {
 }
 
 // NewService is how a new service is constructred
-func NewService(n, v string, s Store) *Service {
+func NewService(name, version string, store Store) *Service {
 	return &Service{
-		Name:    n,
-		Version: v,
-		Store:   s,
+		Name:    name,
+		Version: version,
+		Store:   store,
 	}
 }
 

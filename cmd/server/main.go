@@ -4,11 +4,14 @@ import (
 	"fmt"
 
 	"github.com/cafasaru/starter/internal/db"
+	"github.com/cafasaru/starter/internal/health"
+	tranportHttp "github.com/cafasaru/starter/internal/transport/http"
 )
 
 const (
 	// Version for the microservice
 	Version = "0.0.1"
+	Service = "starter"
 )
 
 // Run is responsible for setting up and running the microservice
@@ -26,7 +29,13 @@ func Run() error {
 		return err
 	}
 
-	fmt.Println("successfully connected and pinged database")
+	healthService := health.NewService(Service, Version, db)
+
+	httpHandler := tranportHttp.NewHandler(healthService)
+
+	if err := httpHandler.Serve(); err != nil {
+		return err
+	}
 
 	return nil
 }

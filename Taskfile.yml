@@ -1,22 +1,22 @@
 version: '3'
-
+# build builds the executable for our project
 tasks:
   build:
     cmds:
       - go build -o app cmd/server/main.go
-
+# test executes all tests for the project
   test:
     cmds:
       - go test -v ./...
-  
+# lints the project to ensure complience
   lint:
     cmds:
       - golangci-lint run
-  
+# builds the project for local development
   run:
     cmds:
       - docker compose up --build
-
+# formats all .go files
   fmt:
     cmds:
       - go fmt ./...

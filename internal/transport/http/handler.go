@@ -34,6 +34,9 @@ func NewHandler(service Service) *Handler {
 
 	h.Router = mux.NewRouter()
 
+	// set middlewares
+	h.Router.Use(JSONMiddleware)
+
 	h.mapRoutes()
 
 	h.Server = &http.Server{

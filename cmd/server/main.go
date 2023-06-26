@@ -29,9 +29,9 @@ func Run() error {
 		return err
 	}
 
-	healthService := health.NewService(Service, Version, db)
+	service := health.NewService(Service, Version, db)
 
-	httpHandler := tranportHttp.NewHandler(healthService)
+	httpHandler := tranportHttp.NewHandler(service)
 
 	if err := httpHandler.Serve(); err != nil {
 		return err

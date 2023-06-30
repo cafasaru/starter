@@ -3,7 +3,6 @@
 package db
 
 import (
-	"context"
 	"fmt"
 	"os"
 
@@ -36,9 +35,4 @@ func NewDatabase() (*Database, error) {
 	return &Database{
 		Client: dbConn,
 	}, nil
-}
-
-// PingDB pings the database and return an error on failure
-func (d *Database) PingDB(ctx context.Context) error {
-	return d.Client.PingContext(ctx)
 }

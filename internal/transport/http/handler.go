@@ -52,7 +52,9 @@ func NewHandler(service Service) *Handler {
 // mapRoutes is used to map the route to the handler used for the request
 func (h *Handler) mapRoutes() {
 
-	h.Router.HandleFunc("/api/v1/liveness", h.Health).Methods("GET")
+	// JWTAuth
+
+	h.Router.HandleFunc("/alive", h.Health).Methods("GET")
 }
 
 // Serve is responsible for starting up the server and gracefully shutting down

@@ -24,6 +24,7 @@ func Run() error {
 		return err
 	}
 
+	// Migrate the database
 	if err := db.MigrateDB(); err != nil {
 		fmt.Println("failed to migrate database")
 		return err

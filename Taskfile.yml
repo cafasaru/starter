@@ -22,9 +22,9 @@ tasks:
       - go fmt ./...
 
 # 
-  integration-test:
+  integration-tests:
     cmds:
-      - docker compose up -d db
+      ##- docker compose up -d db
       - go test -tags=integration -v ./...
     env:
       DB_USERNAME: postgres

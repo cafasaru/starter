@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+starter-api:
+  image: cafasaru/starter-api:0.0.1
+  ports:
+    - "8080:80"
+  deploy:
+    mode: replicated
+    replicas: 1

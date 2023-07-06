@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/cafasaru/starter/internal/db"
-	"github.com/cafasaru/starter/internal/health"
+	"github.com/cafasaru/starter/internal/service"
 	tranportHttp "github.com/cafasaru/starter/internal/transport/http"
 )
 
@@ -30,7 +30,7 @@ func Run() error {
 		return err
 	}
 
-	service := health.NewService(Service, Version, db)
+	service := service.NewService(Service, Version, db)
 
 	httpHandler := tranportHttp.NewHandler(service)
 

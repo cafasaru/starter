@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/cafasaru/starter/internal/health"
+	"github.com/cafasaru/starter/internal/service"
 	"github.com/gorilla/mux"
 )
 
@@ -23,7 +23,7 @@ type Handler struct {
 // Service represents the interface which is the logical layer representation of the microservice
 // Add the service methods here
 type Service interface {
-	Health(context.Context) (health.Health, error)
+	Health(context.Context) (service.Health, error)
 }
 
 // NewHandler is how a new handler with its routes is constructed.
